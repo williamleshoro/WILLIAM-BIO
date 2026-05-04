@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Leshoro | Bio Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-pink: #ff007f;
+            --secondary-purple: #7000ff;
+            --bg-dark: #0a0a0c;
+            --card-bg: rgba(15, 15, 20, 0.85);
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a0a1a;
+            background-image: radial-gradient(circle at center, #2a0a2a 0%, #0a0a0c 100%);
+            color: var(--text-white);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Main Floating Container */
+        .main-card {
+            width: 90%;
+            max-width: 1100px;
+            height: 650px;
+            background: #0f0f14;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px;
+            overflow: hidden;
+        }
+
+        /* Background Glow */
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 0, 127, 0.15) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-thumb {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-pink);
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .login-btn {
+            border: 1px solid var(--text-white);
+            padding: 6px 30px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Hero Section with Flexbox for Side-by-Side */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px;
+            z-index: 10;
+            position: relative;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 52px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 10px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-white);
+            color: var(--text-white);
+        }
+
+        .btn-solid {
+            background: linear-gradient(to right, #7000ff, #ff007f);
+            color: var(--text-white);
+            border: none;
+        }
+
+        /* Side Image Styling */
+        .side-visual {
+            flex: 1;
+            max-width: 400px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Background Hero Image (Character) */
+        .hero-bg-image {
+            position: absolute;
+            right: -100px;
+            bottom: -50px;
+            height: 100%;
+            z-index: 5;
+            opacity: 0.4;
+            pointer-events: none;
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+
+        /* Bottom Cards */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: auto;
+            z-index: 10;
+            position: relative;
+        }
+
+        .card {
+            background: rgba(20, 20, 25, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-pink);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card-header i {
+            font-size: 14px;
+            color: var(--text-white);
+        }
+
+        .card h3 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 11px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 30px;
+            }
+            .side-visual {
+                max-width: 300px;
+                margin-top: 20px;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .main-card {
+                height: auto;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <!-- Background Character Image -->
+        <img src="MEDIA BAY/WIN_20190408_234857-removebg-preview.png" alt="William Leshoro Cyberpunk" class="hero-bg-image">
+
+        <nav>
+            <div class="logo-area">
+                <img src="MEDIA BAY/WIN_20190408_234857-removebg-preview.png" alt="" class="profile-thumb">
+                <div class="logo">MW LESHORO</div>
+            </div>
+            <div class="nav-links">
+                
+                <a href="#">Contact</a>
+               
+            </div>
+        </nav>
+
+        <div class="hero-container">
+            <section class="hero-content">
+                <h1>WILLIAM LESHORO</h1>
+                <p>
+                    Business Management professional offering expert Front-End Development, Music Production, and Video Editing services. Bridging corporate strategy with creative execution.
+                </p>
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-outline">Watch</a>
+                    
+                </div>
+            </section>
+
+            <!-- New Image on the Right Side -->
+            <img src="MEDIA BAY/william back no more.png" alt="Skills Visualization" class="side-visual">
+        </div>
+
+        <section class="services">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Business Mgmt</h3>
+                </div>
+                <p>Strategic planning and operational excellence to drive business growth and efficiency.</p>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Front-End Dev</h3>
+                </div>
+                <p>Crafting responsive, high-performance web interfaces with modern technologies.</p>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Music Prod</h3>
+                </div>
+                <p>Professional sound design and audio engineering for digital media and entertainment.</p>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Video Editing</h3>
+                </div>
+                <p>High-impact visual storytelling through advanced post-production and motion graphics.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
